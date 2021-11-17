@@ -19,7 +19,7 @@ services:
     container_name: mosquitto
     network_mode: host
     volumes:
-      - /mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./configs/mosquitto.conf:/mosquitto/config/mosquitto.conf
     restart: unless-stopped
     deploy:
       restart_policy:

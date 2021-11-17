@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  artnet2mqtt:
+    depends_on:
+      - mosquitto
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: artnet2mqtt
+    hostname: artnet2mqtt
+    network_mode: host
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    hostname: mosquitto
+    container_name: mosquitto
+    network_mode: host
+    volumes:
+      - /mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped
+    deploy:
+      restart_policy:
+        condition: on-failure

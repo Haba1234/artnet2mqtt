@@ -1,0 +1,15 @@
+title = "MQTT and  art-net configuration"
+
+[logger]
+# logging level: debug, error, info
+log-level = "debug"
+
+# MQTT settings
+[mqtt]
+# Client ID. Maximum 23 characters.
+clientID = "client-art-net"
+server = "localhost"
+port = "1883"
+user = ""
+password = ""
+Qos = 0
